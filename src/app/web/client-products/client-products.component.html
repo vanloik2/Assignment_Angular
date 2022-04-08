@@ -1,0 +1,22 @@
+<div class="tab-content">
+  <div class="tab-pane  active" id="blockView">
+    <ul class="thumbnails text-center" style="margin: 0px auto;" >
+      <li class="span3 " *ngFor="let item of products" >
+        <div class="thumbnail">
+          <a href="product_details.html"><img src="{{ item.image }}" alt="" /></a>
+          <div class="caption">
+            <h5>{{ item.name }}</h5>
+            <p>
+              <a routerLink="./detail/{{ item.id }}">Click here</a>
+            </p>
+            <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a>
+              <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
+                href="#"> {{ item.price }}</a>
+            </h4>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr class="soft" />
+  </div>
+</div>

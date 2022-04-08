@@ -1,0 +1,35 @@
+{
+  "products": [
+    {
+      "name": "Điện thoại iPhone 13 Pro Max 512GB Xám",
+      "description": "Đặc điểm nổi bật Chip Apple A15 Bionic xử lý tác vụ mạnh mẽ, trải nghiệm game mượt mà Màn hình OLED 6.7'' Super Retina XDR hiển thị hình ảnh sắc nét, chân thực Tần số quét 120Hz cho thao tác chạm lướt mượt mà, xem video mãn nhãn Cụm 3 camera 12MP: camera tele, Wide, Ultra Wide chụp ảnh chuyên nghiệp iPhone 13 Pro Max kháng nước bụi chuẩn IP68 cho bạn yên tâm sử dụng",
+      "price": 40900000,
+      "image": "https://cdn.nguyenkimmall.com/images/thumbnails/600/336/detailed/756/dien-thoai-iphone-13-pro-max-512gb-xam-3.jpg",
+      "status": 1,
+      "quantity": 10,
+      "id": 1
+    },
+    {
+      "name": "Điện thoại Samsung S22 Ultra 12GB/256GB Đen",
+      "description": "Đặc điểm nổi bật Màn hình cong 6.8 inch, tần số quét 120Hz, trên tấm nền Dynamic AMOLED 2X Độ sáng được cải tiến vượt trội 1.750 nits, thoải mái quan sát mọi điều kiện 4 camera sau cùng cải tiến phần mềm, mang đến khả năng chụp hình ấn tượng Bộ vi xử lý Qualcomm Snapdragon 8 Gen 1, giải trí mượt mà mọi tựa game Điện thoại được trang bị viên pin 5000 mAh, thoải mái giải trí cả ngày dài Bút S-Pen được tích hợp sẵn trong máy, lưu trữ thông tin nhanh chóng, dễ dàng",
+      "price": 33990000,
+      "image": "https://cdn.nguyenkimmall.com/images/thumbnails/600/336/detailed/787/10051342-dien-thoai-samsung-s22-ultra-12gb-256gb-den-3.jpg",
+      "status": 0,
+      "quantity": 10,
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn Lợi",
+      "email": "loinvph17567@fpt.edu.vn",
+      "password": "123456",
+      "address": "Nghệ An",
+      "status": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

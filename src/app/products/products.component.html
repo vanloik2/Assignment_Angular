@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Bảng Sản Phẩm</h5>
+        <hr>
+        <a routerLink="./create" class="btn btn-success rounded-circle"><i class="bi bi-plus-lg"></i></a>
+        <table class="table text-center fs-7 text">
+            <thead class=" fs-7 text">
+                <tr>
+                    <th>ID</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá sản phẩm</th>   
+                    <th>Số lượng</th>   
+                    <th>Trạng thái</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td >
+                        <div class="col-product">{{ product.id }}</div>
+                    </td>
+                    <td>
+                        <div class="col-product">{{ product.name }}</div>
+                    </td>
+                    <td>
+                        <div class="col-product">{{ product.price }}</div>
+                    </td>
+                    <td>
+                        <div class="col-product">{{ product.quantity }}</div>
+                    </td>
+                    <td>
+                        <div class="col-product">
+                            <app-btn-status [status]="product.status" (changeStatus)="parentChangeStatus($event, product)" ></app-btn-status>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning rounded-circle" style="margin-right: 5px;"><i class="bi bi-eye"></i></a>
+                        <a (click)="onDelete( product.id )" class="btn btn-danger rounded-circle "  ><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                <hr>
+            </tbody>
+        </table>
+    </div>
+</div>

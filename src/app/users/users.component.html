@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header">Bảng Người Dùng</div>
+    <hr>
+    <div class="card-body">
+        <a routerLink="" class="btn btn-success rounded-circle"><i class="bi bi-plus-lg"></i></a>
+        <table class="table text-center fs-7 text">
+            <thead class=" fs-7 text">
+                <tr>
+                    <th>ID</th>
+                    <th>Tên User</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Ảnh</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>
+                        <div class="col-user">{{ user.id }}</div>
+                    </td>
+                    <td>
+                        <div class="col-user">{{ user.name }}</div>
+                    </td>
+                    <td>
+                        <div class="col-user">{{ user.email }}</div>
+                    </td>
+                    <td>
+                        <div class="col-user">{{ user.address }}</div>
+                    </td>
+                    <td>
+                        <div class="col-user"><img width="70px" src="{{ user.image }}" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="col-user">
+                            {{ user.status == 0 ? "Hiện" : "Ẩn" }}
+                        </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning rounded-circle"><i class="bi bi-gear"></i></a>
+                        <a  class="btn btn-danger rounded-circle"><i class="bi bi-x"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
