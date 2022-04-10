@@ -1,3 +1,11 @@
+.btn{
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.form-floating>.form-control{
+  padding: 1.625rem 12px;
+}
 /*
  * WTF, forms?
  * Released under MIT and copyright 2014 Mark Otto.

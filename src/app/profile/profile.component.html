@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/admin/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/admin/img/favicon.png">
+    <title>
+        Material Dashboard 2 by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/assets/admin/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+    <div class="card">
+        <div class="card-header fs-5">Thông tin cá nhân</div>
+        <hr>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="image-profile"><img
+                            src="https://image.shutterstock.com/image-vector/businessman-silhouette-avatar-profile-picture-260nw-199246385.jpg"
+                            alt=""></p>
+                </div>
+                <div class="col-md-8">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="text-left fw-bold">Full Name</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="text-left fst-italic">{{ profile.name }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="text-left fw-bold">MSSV</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="text-left fst-italic">{{ profile.mssv }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="text-left fw-bold">Email</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="text-left fst-italic">
+                                        {{ profile.email }}
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="text-left fw-bold">Phone Number</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="text-left fst-italic">
+                                        {{ profile.phone_number }}
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="text-left fw-bold">Address</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="text-left fst-italic">
+                                        {{ profile.address }}
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

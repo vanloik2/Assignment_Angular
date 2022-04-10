@@ -23,6 +23,8 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { ClientProductsComponent } from './web/client-products/client-products.component';
 import { ClientProductDetailComponent } from './web/client-product-detail/client-product-detail.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProfileComponent } from './profile/profile.component';
+import { IndexComponent } from './web/index/index.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductFormComponent,
     ClientProductsComponent,
     ClientProductDetailComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProfileComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

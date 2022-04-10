@@ -1,22 +1,67 @@
-<div class="tab-content">
-  <div class="tab-pane  active" id="blockView">
-    <ul class="thumbnails text-center" style="margin: 0px auto;" >
-      <li class="span3 " *ngFor="let item of products" >
-        <div class="thumbnail">
-          <a href="product_details.html"><img src="{{ item.image }}" alt="" /></a>
-          <div class="caption">
-            <h5>{{ item.name }}</h5>
-            <p>
-              <a routerLink="./detail/{{ item.id }}">Click here</a>
-            </p>
-            <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a>
-              <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-                href="#"> {{ item.price }}</a>
-            </h4>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <hr class="soft" />
-  </div>
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+<div class="col-xs-12 col-md-6" *ngFor="let item of products" >
+	<!-- First product box start here-->
+	<div class="prod-info-main prod-wrap clearfix">
+		<div class="row">
+				<div class="col-md-5 col-sm-12 col-xs-12">
+					<div class="product-image"> 
+						<img src="{{ item.image }}" class="img-responsive"> 
+						<span class="tag2 hot">
+							HOT
+						</span> 
+					</div>
+				</div>
+				<div class="col-md-7 col-sm-12 col-xs-12">
+				<div class="product-deatil">
+						<h5 class="name">
+							<a href="#">
+								{{ item.name }}
+							</a>
+							<a href="#">
+								<span></span>
+							</a>                            
+
+						</h5>
+						<p class="price-container">
+							<span>{{ item.price }}</span>
+						</p>
+						<span class="tag1"></span> 
+				</div>
+				<div class="description">
+					<p>{{ item.description.slice(0, 100) + '...' }}</p>
+				</div>
+				<div class="product-info smart-form">
+					<div class="row">
+						<div class="col-md-12"> 
+							<a href="" class="btn btn-danger">Add to cart</a>
+                            <a routerLink="./detail/{{ item.id }}" class="btn btn-info">More info</a>
+						</div>
+						<div class="col-md-12">
+							<div class="rating">Rating:
+								<label for="stars-rating-5"><i class="fa fa-star text-danger"></i></label>
+								<label for="stars-rating-4"><i class="fa fa-star text-danger"></i></label>
+								<label for="stars-rating-3"><i class="fa fa-star text-danger"></i></label>
+								<label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
+								<label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end product -->
 </div>
+</div>
+</body>
+</html>
+

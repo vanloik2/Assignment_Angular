@@ -1,1 +1,49 @@
-<p>product-detail works!</p>
+<div class="card">
+    <div class="card-header fs-5 text">Chi tiết sản phẩm</div>
+    <hr>
+    <div class="card-body">
+        <form action="" [formGroup]="postForm" (ngSubmit)="onSubmit(postForm.value)" class="col-8">
+            <div class="mb-3">
+                <label for="name" class="form-label">Tên sản phẩm</label>
+                <input type="text" class="form-control" formControlName="name" value="{{ product.name }}"
+                    placeholder="Tên sản phẩm">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Giá sản phẩm</label>
+                <input type="text" class="form-control" formControlName="price" value="{{ product.price }}"
+                    placeholder="Giá sản phẩm">
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Số Lượng sản phẩm</label>
+                <input type="text" class="form-control" formControlName="quantity" value="{{ product.quantity }}"
+                    placeholder="Số lượng sản phẩm">
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" style="height: 100px;" formControlName="description"
+                    value="{{ product.description}}" placeholder="Leave a comment here"
+                    id="floatingTextarea"></textarea>
+                <label for="" class="label-control">Mô tả</label>
+            </div>
+            <div class="mb-3 ">
+                <label for="" class="label-control d-block">Image</label>
+                <label class="file image-upload ">
+                    <input type="file" id="file" aria-label="File browser example" (change)="onFileChange($event)">
+                    <span class="file-custom"></span>
+                </label>
+            </div>
+            <div class="mb-3">
+                <div class="mb-3 form-check form-check-inline">
+                    <input class="form-check-input" formControlName="status" type="radio" id="inlineRadio1" value="1">
+                    <label class="form-check-label" for="inlineRadio1">Hiện</label>
+                </div>
+                <div class="mb-3 form-check form-check-inline">
+                    <input class="form-check-input" formControlName="status" type="radio" id="inlineRadio2" value="0"
+                        [disabled]="false">
+                    <label class="form-check-label" for="inlineRadio2">Ẩn</label>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" style="margin-right: 10px">Cập nhật</button>
+            <a routerLink="../../" class="btn btn-success">Danh sách</a>
+        </form>
+    </div>
+</div>

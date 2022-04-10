@@ -1,3 +1,5 @@
+import { IndexComponent } from './web/index/index.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientProductDetailComponent } from './web/client-product-detail/client-product-detail.component';
 import { ClientProductsComponent } from './web/client-products/client-products.component';
 import { LayoutClientComponent } from './layout/layout-client/layout-client.component';
@@ -7,6 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -14,10 +17,18 @@ const routes: Routes = [
     component: LayoutClientComponent,
     children: [
       // {
-      //   // path: '',
-      //   // redirectTo: 'phones',
-      //   // pathMatch: 'full'
+      //   path: '',
+      //   redirectTo: 'admin',
+      //   pathMatch: 'full'
       // },
+      // {
+      //   path: '',
+      //   component: ProfileComponent
+      // },
+      {
+        path: '',
+        component: ProfileComponent
+      },
       {
         path: 'phones',
         component: ClientProductsComponent
@@ -33,6 +44,10 @@ const routes: Routes = [
     component : LayoutAdminComponent,
     children : [
       {
+        path: '',
+        component: ProfileComponent
+      },
+      {
         path: 'users',
         component: UsersComponent
       },
@@ -43,6 +58,9 @@ const routes: Routes = [
       {
         path: 'products/create',
         component: ProductFormComponent
+      },{
+        path: 'products/detail/:id',
+        component : ProductDetailComponent
       }
     ]
   }

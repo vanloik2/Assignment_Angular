@@ -22,9 +22,11 @@ export class ProductsComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    this.handleApiService.deleteRecord('products', id).subscribe((data) => {
-      this.getProducts();
-    });
+    if(confirm("Xác nhận xóa !") == true){
+      this.handleApiService.deleteRecord('products', id).subscribe((data) => {
+        this.getProducts();
+      });
+    }
   }
 
   parentChangeStatus(newStatus: number, record: any) {

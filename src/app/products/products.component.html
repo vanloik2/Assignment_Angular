@@ -1,10 +1,10 @@
 <div class="card">
+    <div class="card-header fs-5">Bảng sản phẩm</div>
+    <hr>
     <div class="card-body">
-        <h5 class="card-title">Bảng Sản Phẩm</h5>
-        <hr>
         <a routerLink="./create" class="btn btn-success rounded-circle"><i class="bi bi-plus-lg"></i></a>
-        <table class="table text-center fs-7 text">
-            <thead class=" fs-7 text">
+        <table class="table text-center fs-7 text table-hover">
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Tên sản phẩm</th>
@@ -34,7 +34,7 @@
                         </div>
                     </td>
                     <td>
-                        <a class="btn btn-warning rounded-circle" style="margin-right: 5px;"><i class="bi bi-eye"></i></a>
+                        <a routerLink="./detail/{{ product.id }}" class="btn btn-warning rounded-circle" style="margin-right: 5px;"><i class="bi bi-eye"></i></a>
                         <a (click)="onDelete( product.id )" class="btn btn-danger rounded-circle "  ><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>

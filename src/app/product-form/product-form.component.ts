@@ -1,47 +1,76 @@
+import { HttpClient } from '@angular/common/http';
 import { HandleApiService } from './../services/handle-api.service';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 interface IData {
-  name: string,
-  description: string,
-  price: number, 
-  image: string, 
-  status: number
+  name: string;
+  description: string;
+  price: number;
+  quantity: number;
+  image: string;
+  status: number;
 }
 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.css']
+  styleUrls: ['./product-form.component.css'],
 })
 export class ProductFormComponent implements OnInit {
-  postForm = new FormGroup({
-    name : new FormControl(''),
-    description : new FormControl(''),
-    price : new FormControl(''),
-    image : new FormControl(''),
-    status : new FormControl(0)
-  })
-  constructor( 
+  postForm = this.fb.group({
+    name: [''],
+    description: [''],
+    price: [''],
+    quantity: [''],
+    status: ['1'],
+    image: [''],
+  });
+
+  constructor(
     private handleService: HandleApiService,
-    private router : Router
-  ) { 
-    
+    private router: Router,
+    private http: HttpClient,
+    private fb: FormBuilder
+  ) {}
+
+  fileName = '';
+
+  ngOnInit(): void {}
+
+  onFileChange(event: any) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+
+      const [file] = event.target.files;
+
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.postForm.patchValue({
+          image: reader.result
+        });
+        this.fileName = file.name.slice(0, 10) + '----';
+      };
+    }
   }
 
-  ngOnInit(): void {
-  }
-  
-  onSubmit( data: IData){
-    data.status = Number(data.status)
-    data.price = Number(data.price)
-    
-    this.handleService.createRecord('products', data).subscribe( res =>{
-      this.router.navigate(['/admin/products'])
-    })
+  onSubmit(data: IData) {
+    data.status = Number(data.status);
+    data.price = Number(data.price);
+    data.quantity = Number(data.quantity);
 
+    this.handleService.createRecord('products', data).subscribe((res) => {
+      if(confirm('Về danh sách !') == true) {
+        this.router.navigate(['/products']);
+      }
+    });
   }
-
 }

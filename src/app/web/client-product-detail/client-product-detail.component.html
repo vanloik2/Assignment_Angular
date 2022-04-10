@@ -1,86 +1,63 @@
-<div class="span9">
-    <ul class="breadcrumb">
-        <li><a href="#">Home</a> <span class="divider">/</span></li>
-        <li><a href="../phones">Products</a> <span class="divider">/</span></li>
-        <li class="active">product Details</li>
-    </ul>
-    <div class="row">
-        <div id="gallery" class="span3">
-            <a href="{{ product.image }}" title="Fujifilm FinePix S2950 Digital Camera">
-                <img src="{{ product.image }}" style="width:100%"
-                    alt="{{ product.image }}" />
-            </a>
-            <div id="differentview" class="moreOptopm carousel slide">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <a href="{{ product.image }}"> <img style="width:29%"
-                                src="{{ product.image }}" alt="" /></a>
-                        <a href="{{ product.image }}"> <img style="width:29%"
-                                src="{{ product.image }}" alt="" /></a>
-                        <a href="{{ product.image }}"> <img style="width:29%"
-                                src="{{ product.image }}" alt="" /></a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ product.image }}"> <img style="width:29%"
-                                src="{{ product.image }}" alt="" /></a>
-                        <a href="{{ product.image }}"> <img style="width:29%"
-                                src="{{ product.image }}" alt="" /></a>
-                        <a href="{{ product.image }}"> <img style="width:29%"
-                                src="{{ product.image }}" alt="" /></a>
-                    </div>
-                </div>
-                <!--  
-			  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-              <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a> 
-			  -->
-            </div>
+<!--Important link from https://bootsnipp.com/snippets/XqvZr-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-            <div class="btn-toolbar">
-                <div class="btn-group">
-                    <span class="btn"><i class="icon-envelope"></i></span>
-                    <span class="btn"><i class="icon-print"></i></span>
-                    <span class="btn"><i class="icon-zoom-in"></i></span>
-                    <span class="btn"><i class="icon-star"></i></span>
-                    <span class="btn"><i class=" icon-thumbs-up"></i></span>
-                    <span class="btn"><i class="icon-thumbs-down"></i></span>
+<div class="pd-wrap">
+    <div class="container">
+        <div class="heading-section">
+            <h2>{{ product.name }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p><img style="width: 100%;" src="{{ product.image }}" alt=""></p>
+            </div>
+            <div class="col-md-6">
+                <div class="product-dtl">
+                    <div class="product-info">
+                        <div class="product-name">Variable Product</div>
+                        <div class="reviews-counter">
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" checked />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" checked />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" checked />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                            <span>1 Reviews</span>
+                        </div>
+                        <div class="product-price-discount"><span>{{ product.price }}</span><span
+                                class="line-through">$29.00</span></div>
+                    </div>
+                    <p>{{ product.description }}</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="color">Color</label>
+                            <select id="color" name="color" class="form-control">
+                                <option>Blue</option>
+                                <option>Green</option>
+                                <option>Red</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="product-count">
+                        <label for="size">Quantity</label>
+                        <form action="#" class="display-flex">
+                            <div class="qtyminus">-</div>
+                            <input type="text" name="quantity" value="1" class="qty">
+                            <div class="qtyplus">+</div>
+                        </form>
+                        <a href="#" class="round-black-btn">Add to Cart</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="span6">
-            <h3>{{ product.name }}</h3>
-            <!-- <small>- (14MP, 18x Optical Zoom) 3-inch LCD</small> -->
-            <hr class="soft" />
-            <form class="form-horizontal qtyFrm">
-                <div class="control-group">
-                    <label class="control-label"><span>{{ product.price }} VND</span></label>
-                    <div class="controls">
-                        <input type="number" class="span1" placeholder="Qty." value="{{ product.qty }}" />
-                        <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i
-                                class=" icon-shopping-cart"></i></button>
-                    </div>
-                </div>
-            </form>
 
-            <hr class="soft" />
-            <h4>100 items in stock</h4>
-            <form class="form-horizontal qtyFrm pull-right">
-                <div class="control-group">
-                    <label class="control-label"><span>Color</span></label>
-                    <div class="controls">
-                        <select class="span2">
-                            <option>Black</option>
-                            <option>Red</option>
-                            <option>Blue</option>
-                            <option>Brown</option>
-                        </select>
-                    </div>
-                </div>
-            </form>
-            <hr class="soft clr" />
-            <p>
-                {{ product.description }}
-            </p>
-       
+        <div style="text-align:center;font-size:14px;padding-bottom:20px;">Get free icon packs for your next project at
+            <a href="http://iiicons.in/" target="_blank" style="color:#ff5e63;font-weight:bold;">www.iiicons.in</a>
         </div>
     </div>
 </div>
