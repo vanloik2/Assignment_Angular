@@ -7,16 +7,25 @@
                 <label for="name" class="form-label">Tên sản phẩm</label>
                 <input type="text" class="form-control" formControlName="name" value="{{ product.name }}"
                     placeholder="Tên sản phẩm">
+
+                <app-validate-form [formField]="postForm.get('name')" key="Tên sản phẩm">
+                </app-validate-form>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Giá sản phẩm</label>
                 <input type="text" class="form-control" formControlName="price" value="{{ product.price }}"
                     placeholder="Giá sản phẩm">
+
+                    <app-validate-form [formField]="postForm.get('price')" key="Giá sản phẩm">
+                    </app-validate-form>
             </div>
             <div class="mb-3">
                 <label for="quantity" class="form-label">Số Lượng sản phẩm</label>
                 <input type="text" class="form-control" formControlName="quantity" value="{{ product.quantity }}"
                     placeholder="Số lượng sản phẩm">
+
+                    <app-validate-form [formField]="postForm.get('quantity')" key="Số lượng sản phẩm">
+                    </app-validate-form>
             </div>
             <div class="form-floating mb-3">
                 <textarea class="form-control" style="height: 100px;" formControlName="description"
@@ -42,7 +51,7 @@
                     <label class="form-check-label" for="inlineRadio2">Ẩn</label>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit" style="margin-right: 10px">Cập nhật</button>
+            <button class="btn btn-primary" [disabled]="postForm.invalid" type="submit" style="margin-right: 10px">Cập nhật</button>
             <a routerLink="../../" class="btn btn-success">Danh sách</a>
         </form>
     </div>

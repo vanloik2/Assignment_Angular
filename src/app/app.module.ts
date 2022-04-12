@@ -25,6 +25,7 @@ import { ClientProductDetailComponent } from './web/client-product-detail/client
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { IndexComponent } from './web/index/index.component';
+import { ValidateFormComponent } from './components/validate-form/validate-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { IndexComponent } from './web/index/index.component';
     ClientProductDetailComponent,
     ProductDetailComponent,
     ProfileComponent,
-    IndexComponent
+    IndexComponent,
+    ValidateFormComponent
   ],
   imports: [
     BrowserModule,

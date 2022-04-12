@@ -1,0 +1,11 @@
+<div  class="text-danger"  *ngIf="formField.dirty">
+
+    <p *ngIf="formField.errors?.['required']" >
+        {{ key }} không được để trống !
+    </p>
+
+    <p *ngIf="formField.errors?.['pattern']" >
+        {{ key }} có kí tự không hợp lệ !
+    </p>
+
+</div>

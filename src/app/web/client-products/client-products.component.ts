@@ -22,6 +22,8 @@ export class ClientProductsComponent implements OnInit {
   getProducts(){
     this.handleService.getRecords('products').subscribe( res =>{
       this.products = res
+      console.log(res);
+      
     })
   }
 

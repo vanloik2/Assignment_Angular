@@ -25,12 +25,16 @@ interface IData {
 })
 export class ProductFormComponent implements OnInit {
   postForm = this.fb.group({
-    name: [''],
+    name: ['', [Validators.required]],
     description: [''],
-    price: [''],
-    quantity: [''],
+    price: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    quantity: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
     status: ['1'],
-    image: [''],
+    image: ['',
+  [
+    Validators.required
+  ]
+],
   });
 
   constructor(
@@ -48,14 +52,13 @@ export class ProductFormComponent implements OnInit {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
-
       const [file] = event.target.files;
 
       reader.readAsDataURL(file);
 
       reader.onload = () => {
         this.postForm.patchValue({
-          image: reader.result
+          image: reader.result,
         });
         this.fileName = file.name.slice(0, 10) + '----';
       };
@@ -68,7 +71,7 @@ export class ProductFormComponent implements OnInit {
     data.quantity = Number(data.quantity);
 
     this.handleService.createRecord('products', data).subscribe((res) => {
-      if(confirm('Về danh sách !') == true) {
+      if (confirm('Về danh sách !') == true) {
         this.router.navigate(['/products']);
       }
     });

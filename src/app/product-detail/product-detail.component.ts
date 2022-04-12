@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { HandleApiService } from './../services/handle-api.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 interface IData {
@@ -18,29 +18,32 @@ interface IData {
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
-  postForm = new FormGroup({
-    name: new FormControl(''),
-    description: new FormControl(''),
-    price: new FormControl(''),
-    quantity: new FormControl(''),
-    image: new FormControl(''),
-    status: new FormControl(0),
+
+  postForm = this.fb.group({
+    name: ['', [Validators.required]],
+    description: [''],
+    price: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    quantity: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    status: ['1'],
+    image: ['', [Validators.required]],
   });
+
   constructor(
     private handleApiService: HandleApiService,
     private router: Router,
-    private routes: ActivatedRoute
+    private routes: ActivatedRoute,
+    private fb: FormBuilder
   ) {}
 
   product: any;
-  imageUpload :any
+  imageUpload: any;
 
   ngOnInit(): void {
     const id = Number(this.routes.snapshot.paramMap.get('id'));
 
     this.handleApiService.getRecord('products', id).subscribe((res) => {
       this.product = res;
-      
+
       this.imageUpload = document.querySelector('.image-upload');
       this.imageUpload.style.backgroundImage = `url(${this.product.image})`;
 
@@ -55,7 +58,7 @@ export class ProductDetailComponent implements OnInit {
     this.handleApiService
       .updateRecord('products', this.product.id, data)
       .subscribe((res) => {
-        if(confirm("Về danh sách !") == true){
+        if (confirm('Về danh sách !') == true) {
           this.router.navigate(['/admin/products']);
         }
       });
@@ -73,8 +76,8 @@ export class ProductDetailComponent implements OnInit {
         this.postForm.patchValue({
           image: reader.result,
         });
-      this.imageUpload.style.backgroundImage = `url(${reader.result})`;
-    };
+        this.imageUpload.style.backgroundImage = `url(${reader.result})`;
+      };
     }
   }
 }
