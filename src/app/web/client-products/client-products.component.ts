@@ -21,7 +21,8 @@ export class ClientProductsComponent implements OnInit {
 
   getProducts(){
     this.handleService.getRecords('products').subscribe( res =>{
-      this.products = res
+
+      this.products=Object.values(res).filter(product => product.status === 1);
       
     })
   }

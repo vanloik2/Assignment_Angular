@@ -72,7 +72,7 @@ export class ProductFormComponent implements OnInit {
 
     this.handleService.createRecord('products', data).subscribe((res) => {
       if (confirm('Về danh sách !') == true) {
-        this.router.navigate(['/products']);
+        this.router.navigate(['/admin/products'])
       }
     });
   }
